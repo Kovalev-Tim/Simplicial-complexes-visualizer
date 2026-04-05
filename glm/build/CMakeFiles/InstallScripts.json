@@ -1,9 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"C:/Users/timos/Simplex-visualizer/glm/build/cmake_install.cmake",
-		"C:/Users/timos/Simplex-visualizer/glm/build/_deps/glm-build/cmake_install.cmake",
-		"C:/Users/timos/Simplex-visualizer/glm/build/_deps/glm-build/glm/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

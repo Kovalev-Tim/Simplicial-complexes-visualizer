@@ -1,8 +1,13 @@
+#pragma once
+
 #include <iostream>
 #include <cassert>
 #include <glm/glm.hpp>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include "core/simplicial_complex.hpp"
 #include "core/embedding-points.hpp"
+#include "render/renderer.hpp"
 
 
 void print_stats(const SimplicialComplex& K) {
@@ -13,11 +18,7 @@ void print_stats(const SimplicialComplex& K) {
     std::cout << "-------------------" << std::endl;
 }
 
-void embedding_check() {
-    SimplicialComplex K;
-    K.add_simplex({1,2,3});
-    K.add_simplex({3,4});
-
+void embedding_check(const SimplicialComplex& K) {
     std::cout << "Vertices: ";
     for (int v : K.get_vertices()) std::cout << v << " ";
     std::cout << std::endl;
@@ -57,8 +58,11 @@ void embedding_check() {
     std::cout << "Embedding test passed!" << std::endl;
 }
 
+void visual_check() {
 
-int main() {
+}
+
+void simplex_tests() {
     {
         std::cout << "Test 1: single vertex" << std::endl;
         SimplicialComplex K;
@@ -117,6 +121,7 @@ int main() {
         assert(K.get_simplices(1).size() == 4);
         print_stats(K);
     }
+
     {
         std::cout << "Test 7: max dimension tracking" << std::endl;
         SimplicialComplex K;
@@ -128,7 +133,141 @@ int main() {
         assert(K.max_dim() == 2);
         print_stats(K);
     }
+
     std::cout << "Simplex tests passed." << std::endl;
-    embedding_check();
+}
+
+void read_input(SimplicialComplex& K) {
+    int n;
+    std::cout << "Enter number of simplices:\n";
+    std::cin >> n;
+
+    std::cout << "Enter simplices:\n";
+    for (int i = 0; i < n; i++) {
+        std::cout << "Simplex " << i << " size(dimension): ";
+        int m;
+        std::cin >> m;
+        std::vector<int> simplex(m);
+        for (int j = 0; j < m; j++) {
+            std::cin >> simplex[j];
+        }
+        K.add_simplex(simplex);
+    }
+}
+const int WIDTH = 2000, HEIGHT = 2000;
+double lastX = WIDTH / 2;
+double lastY = HEIGHT / 2;
+bool firstMouse = true;
+float radius = 5.0f;
+float yaw = 0.0f;
+float pitch = 0.0f;
+glm::vec3 target = glm::vec3(0.0f);
+glm::vec3 camPos;
+
+void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
+    if (firstMouse) {
+        lastX = xpos;
+        lastY = ypos;
+        firstMouse = false;
+    }
+
+    float dx = xpos - lastX;
+    float dy = lastY - ypos;
+    lastX = xpos;
+    lastY = ypos;
+
+    if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
+        float sensitivity = 0.005f;
+        yaw   += dx * sensitivity;
+        pitch += dy * sensitivity;
+
+        pitch = std::clamp(pitch, -1.5f, 1.5f);
+    }
+
+    if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS) {
+        float panSpeed = 0.003f * radius;
+        glm::vec3 forward = glm::normalize(target - camPos);
+        glm::vec3 right = glm::normalize(glm::cross(forward, glm::vec3(0,1,0)));
+        glm::vec3 up = glm::normalize(glm::cross(right, forward));
+
+        target += -right * dx * panSpeed;
+        target += up * dy * panSpeed;
+    }
+}
+
+void scroll_callback(GLFWwindow* window, double x_off, double y_off) {
+    radius -= (float)y_off;
+    radius = std::clamp(radius, 1.0f, 20.0f);
+}
+
+int main() {
+    SimplicialComplex K;
+    read_input(K);
+    //simplex_tests();
+    //embedding_check(K);
+
+    std::cout << "Complex built\n";
+
+    Embedding Emb(K);
+    Emb.initialize_random(3.0f, 42);
+    Emb.run(500, 0.01f);
+
+    glfwInit();
+
+    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Simplicial Viewer", NULL, NULL);
+    if (!window) {
+        std::cout << "Failed to create window\n";
+        return -1;
+    }
+
+    glfwMakeContextCurrent(window);
+    glfwSetCursorPosCallback(window, mouse_callback);
+    glfwSetScrollCallback(window, scroll_callback);
+
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        std::cout << "Failed to initialize GLAD\n";
+        return -1;
+    }
+
+    glViewport(0, 0, WIDTH, HEIGHT);
+    glEnable(GL_DEPTH_TEST);
+
+    Renderer renderer;
+    renderer.init();
+    renderer.upload(K, Emb.get_positions());
+
+    while (!glfwWindowShouldClose(window)) {
+        glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        camPos.x = radius * cos(pitch) * cos(yaw);
+        camPos.y = radius * sin(pitch);
+        camPos.z = radius * cos(pitch) * sin(yaw);
+
+        camPos += target;
+
+        glm::mat4 view = glm::lookAt(
+            camPos,
+            target,
+            glm::vec3(0,1,0)
+        );
+
+        glm::mat4 proj = glm::perspective(
+            glm::radians(45.0f),
+            (float)WIDTH / HEIGHT,
+            0.1f,
+            100.0f
+        );
+
+
+        glm::mat4 MVP = proj * view;
+
+        renderer.draw(MVP);
+
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
+    glfwTerminate();
+    return 0;
 }
 

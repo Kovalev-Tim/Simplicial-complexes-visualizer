@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-subbuild\CMakeFiles\a8742acd8ada1adb2404692fbea6c5a7\glfw-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-subbuild\CMakeFiles\a8742acd8ada1adb2404692fbea6c5a7\glfw-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-subbuild\CMakeFiles\a8742acd8ada1adb2404692fbea6c5a7\glfw-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-subbuild\CMakeFiles\a8742acd8ada1adb2404692fbea6c5a7\glfw-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-subbuild\CMakeFiles\a8742acd8ada1adb2404692fbea6c5a7\glfw-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-subbuild\CMakeFiles\a8742acd8ada1adb2404692fbea6c5a7\glfw-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-subbuild\CMakeFiles\a8742acd8ada1adb2404692fbea6c5a7\glfw-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-subbuild\CMakeFiles\a8742acd8ada1adb2404692fbea6c5a7\glfw-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-subbuild\CMakeFiles\e86f516553e83a2340777481edaea260\glfw-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-subbuild\CMakeFiles\7f82292658a3663eef0685c3e99712a2\glfw-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-subbuild\CMakeFiles\glfw-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{6D57D5A8-C765-3AD8-BB6E-889DE11293E6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

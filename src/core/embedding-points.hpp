@@ -19,8 +19,7 @@ class Embedding {
     float k_vol = 0.1f;
 
     void compute_forces() {
-        for (auto& [v, f] : force)
-            f = Vec3(0.0f);
+        for (auto& [v, f] : force) f = Vec3(0.0f);
         apply_repulsion();
         apply_edge_forces();
         apply_triangle_forces();

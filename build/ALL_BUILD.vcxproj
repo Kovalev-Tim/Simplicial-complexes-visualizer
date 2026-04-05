@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{767FFC5F-BA9B-3194-8AF0-FB84634F4445}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\timos\Simplex-visualizer\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/timos/Simplex-visualizer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -SC:/Users/timos/Simplex-visualizer -BC:/Users/timos/Simplex-visualizer/build --check-stamp-file C:/Users/timos/Simplex-visualizer/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeCXXInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\ExternalProject\shared_internal_commands.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FetchContent.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FetchContent\CMakeLists.cmake.in;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FindGit.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Linker\MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeCCompiler.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeCXXCompiler.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeRCCompiler.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\timos\Simplex-visualizer\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/timos/Simplex-visualizer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -SC:/Users/timos/Simplex-visualizer -BC:/Users/timos/Simplex-visualizer/build --check-stamp-file C:/Users/timos/Simplex-visualizer/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeCXXInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\ExternalProject\shared_internal_commands.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FetchContent.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FetchContent\CMakeLists.cmake.in;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FindGit.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Linker\MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeCCompiler.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeCXXCompiler.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeRCCompiler.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\timos\Simplex-visualizer\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/timos/Simplex-visualizer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -SC:/Users/timos/Simplex-visualizer -BC:/Users/timos/Simplex-visualizer/build --check-stamp-file C:/Users/timos/Simplex-visualizer/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeCXXInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\ExternalProject\shared_internal_commands.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FetchContent.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FetchContent\CMakeLists.cmake.in;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FindGit.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Linker\MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeCCompiler.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeCXXCompiler.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeRCCompiler.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\timos\Simplex-visualizer\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/timos/Simplex-visualizer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -SC:/Users/timos/Simplex-visualizer -BC:/Users/timos/Simplex-visualizer/build --check-stamp-file C:/Users/timos/Simplex-visualizer/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeCXXInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\ExternalProject\shared_internal_commands.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FetchContent.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FetchContent\CMakeLists.cmake.in;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FindGit.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Linker\MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeCCompiler.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeCXXCompiler.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeRCCompiler.cmake;C:\Users\timos\Simplex-visualizer\build\CMakeFiles\4.0.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\timos\Simplex-visualizer\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\ZERO_CHECK.vcxproj">
+      <Project>{BB7E3AA4-7A7B-34D7-8293-10F167BED509}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\allocator.vcxproj">
+      <Project>{5DB9924F-F586-3B59-89D7-522A77018B8B}</Project>
+      <Name>allocator</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\examples\boing.vcxproj">
+      <Project>{1064518F-8AAD-3F80-9E46-04BBFFDE8012}</Project>
+      <Name>boing</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\clipboard.vcxproj">
+      <Project>{504A071A-9438-3EA0-B2AE-0AFD7D5653C7}</Project>
+      <Name>clipboard</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\cursor.vcxproj">
+      <Project>{2581C7BC-135D-3705-AE86-CF5683FF49E8}</Project>
+      <Name>cursor</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\empty.vcxproj">
+      <Project>{30CF0F80-8321-3C9A-9A56-D3FB3EA14BAD}</Project>
+      <Name>empty</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\events.vcxproj">
+      <Project>{93DE1E7B-C197-388D-8B70-D6F6B69811A6}</Project>
+      <Name>events</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\gamma.vcxproj">
+      <Project>{B8195EC7-1A85-33BB-8FB2-F50131819D30}</Project>
+      <Name>gamma</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\examples\gears.vcxproj">
+      <Project>{6AFD847C-5F86-329A-8E2B-4AF69895D746}</Project>
+      <Name>gears</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\glad.vcxproj">
+      <Project>{EC77F050-83AF-3351-96F8-9738CBA2EC98}</Project>
+      <Name>glad</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\src\glfw.vcxproj">
+      <Project>{9B1573A0-74D4-38EC-B15E-D01EC9FA0A9A}</Project>
+      <Name>glfw</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\glfwinfo.vcxproj">
+      <Project>{92F8F765-B9DA-3547-A1C7-64935190D676}</Project>
+      <Name>glfwinfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glm-build\glm\glm.vcxproj">
+      <Project>{66497D0A-69AA-35F5-BC13-8A9103C4B2C4}</Project>
+      <Name>glm</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\examples\heightmap.vcxproj">
+      <Project>{C66D8159-BB43-31BE-93FB-DA4B2342745D}</Project>
+      <Name>heightmap</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\icon.vcxproj">
+      <Project>{B6604736-234D-3A66-A812-EC715137D104}</Project>
+      <Name>icon</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\iconify.vcxproj">
+      <Project>{F80F776A-6BC2-31DD-9CEA-CB047A4DF547}</Project>
+      <Name>iconify</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\inputlag.vcxproj">
+      <Project>{AB5A8D97-5A63-3074-8C02-AE92FF44B336}</Project>
+      <Name>inputlag</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\joysticks.vcxproj">
+      <Project>{F4533C18-A158-3DBF-A703-379A5721FBD4}</Project>
+      <Name>joysticks</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\monitors.vcxproj">
+      <Project>{620B9DC2-8902-3831-89DF-26772032FEA5}</Project>
+      <Name>monitors</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\msaa.vcxproj">
+      <Project>{3F52DB0A-7549-3DA3-9D82-BA6227A3A888}</Project>
+      <Name>msaa</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\examples\offscreen.vcxproj">
+      <Project>{AC06AB97-EE48-3F0D-B108-2BF90305EF10}</Project>
+      <Name>offscreen</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\examples\particles.vcxproj">
+      <Project>{529CAC62-46A5-317E-B870-C4236090C9A9}</Project>
+      <Name>particles</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\reopen.vcxproj">
+      <Project>{7BEF7B02-6AC5-3ADE-9AC9-DFF24CC69147}</Project>
+      <Name>reopen</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\examples\sharing.vcxproj">
+      <Project>{66F9729E-8FD1-3145-8ACE-C4266857DFF4}</Project>
+      <Name>sharing</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\examples\splitview.vcxproj">
+      <Project>{F99621C2-5644-3FCD-8DD3-463820FEFF26}</Project>
+      <Name>splitview</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\tearing.vcxproj">
+      <Project>{7F1701F4-9B0A-3D55-BACE-4C4F3479D3F0}</Project>
+      <Name>tearing</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\threads.vcxproj">
+      <Project>{601FDCF5-0D84-3E17-8C0C-F52FA95C3C19}</Project>
+      <Name>threads</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\timeout.vcxproj">
+      <Project>{31CFCFE5-C797-3639-A649-3619CA773F02}</Project>
+      <Name>timeout</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\title.vcxproj">
+      <Project>{585904EF-EF9E-3027-A22C-FDF87F792C35}</Project>
+      <Name>title</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\examples\triangle-opengl.vcxproj">
+      <Project>{F5C25A7E-A62E-3CBD-891D-915A4FB4EB61}</Project>
+      <Name>triangle-opengl</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\examples\triangle-opengles.vcxproj">
+      <Project>{1F62E1A9-A3E7-3218-9E06-CE3D860C091D}</Project>
+      <Name>triangle-opengles</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\triangle-vulkan.vcxproj">
+      <Project>{4A4EDB4C-0F28-3102-88D8-3D4A76937028}</Project>
+      <Name>triangle-vulkan</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\viewer.vcxproj">
+      <Project>{BB866BBB-02AA-32B9-B9B0-07DFFFD2C45B}</Project>
+      <Name>viewer</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\examples\wave.vcxproj">
+      <Project>{2177DF11-A06C-3ECB-B27B-969B49FC396F}</Project>
+      <Name>wave</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\tests\window.vcxproj">
+      <Project>{F4F32D53-D77C-3347-A93A-B7A7779AA988}</Project>
+      <Name>window</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\timos\Simplex-visualizer\build\_deps\glfw-build\examples\windows.vcxproj">
+      <Project>{F1A931FE-55D2-35EA-96A8-087982145B4D}</Project>
+      <Name>windows</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,150 @@
+^C:\USERS\TIMOS\SIMPLEX-VISUALIZER\BUILD\_DEPS\GLM-SUBBUILD\CMAKEFILES\DB7C6A15C51A3B50207F4C2D27A95510\GLM-POPULATE-MKDIR.RULE
+setlocal
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -Dcfgdir=/Debug -P C:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild/glm-populate-prefix/tmp/glm-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -E touch C:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/Debug/glm-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\TIMOS\SIMPLEX-VISUALIZER\BUILD\_DEPS\GLM-SUBBUILD\CMAKEFILES\DB7C6A15C51A3B50207F4C2D27A95510\GLM-POPULATE-DOWNLOAD.RULE
+setlocal
+cd C:\Users\timos\Simplex-visualizer\build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P C:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild/glm-populate-prefix/tmp/glm-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -E touch C:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/Debug/glm-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\TIMOS\SIMPLEX-VISUALIZER\BUILD\_DEPS\GLM-SUBBUILD\CMAKEFILES\DB7C6A15C51A3B50207F4C2D27A95510\GLM-POPULATE-UPDATE.RULE
+setlocal
+cd C:\Users\timos\Simplex-visualizer\build\_deps\glm-src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P C:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild/glm-populate-prefix/tmp/glm-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\TIMOS\SIMPLEX-VISUALIZER\BUILD\_DEPS\GLM-SUBBUILD\CMAKEFILES\DB7C6A15C51A3B50207F4C2D27A95510\GLM-POPULATE-PATCH.RULE
+setlocal
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -E touch C:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/Debug/glm-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\TIMOS\SIMPLEX-VISUALIZER\BUILD\_DEPS\GLM-SUBBUILD\CMAKEFILES\DB7C6A15C51A3B50207F4C2D27A95510\GLM-POPULATE-CONFIGURE.RULE
+setlocal
+cd C:\Users\timos\Simplex-visualizer\build\_deps\glm-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -E touch C:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/Debug/glm-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\TIMOS\SIMPLEX-VISUALIZER\BUILD\_DEPS\GLM-SUBBUILD\CMAKEFILES\DB7C6A15C51A3B50207F4C2D27A95510\GLM-POPULATE-BUILD.RULE
+setlocal
+cd C:\Users\timos\Simplex-visualizer\build\_deps\glm-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -E touch C:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/Debug/glm-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\TIMOS\SIMPLEX-VISUALIZER\BUILD\_DEPS\GLM-SUBBUILD\CMAKEFILES\DB7C6A15C51A3B50207F4C2D27A95510\GLM-POPULATE-INSTALL.RULE
+setlocal
+cd C:\Users\timos\Simplex-visualizer\build\_deps\glm-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -E touch C:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/Debug/glm-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\TIMOS\SIMPLEX-VISUALIZER\BUILD\_DEPS\GLM-SUBBUILD\CMAKEFILES\DB7C6A15C51A3B50207F4C2D27A95510\GLM-POPULATE-TEST.RULE
+setlocal
+cd C:\Users\timos\Simplex-visualizer\build\_deps\glm-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -E touch C:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/Debug/glm-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\TIMOS\SIMPLEX-VISUALIZER\BUILD\_DEPS\GLM-SUBBUILD\CMAKEFILES\94080B87F770345366420187F67B4DDC\GLM-POPULATE-COMPLETE.RULE
+setlocal
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -E make_directory C:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -E touch C:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild/CMakeFiles/Debug/glm-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -E touch C:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/Debug/glm-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\TIMOS\SIMPLEX-VISUALIZER\BUILD\_DEPS\GLM-SUBBUILD\CMAKEFILES\08307BE279289EB85B4F248F11236509\GLM-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\TIMOS\SIMPLEX-VISUALIZER\BUILD\_DEPS\GLM-SUBBUILD\CMAKELISTS.TXT
+setlocal
+C:\Users\timos\AppData\Local\packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\cmake\data\bin\cmake.exe -SC:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild -BC:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild --check-stamp-file C:/Users/timos/Simplex-visualizer/build/_deps/glm-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

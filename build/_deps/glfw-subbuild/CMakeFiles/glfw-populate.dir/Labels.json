@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/timos/Simplex-visualizer/build/_deps/glfw-subbuild/CMakeFiles/glfw-populate"
+		},
+		{
+			"file" : "C:/Users/timos/Simplex-visualizer/build/_deps/glfw-subbuild/CMakeFiles/7f82292658a3663eef0685c3e99712a2/glfw-populate.rule"
+		},
+		{
+			"file" : "C:/Users/timos/Simplex-visualizer/build/_deps/glfw-subbuild/CMakeFiles/e86f516553e83a2340777481edaea260/glfw-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/timos/Simplex-visualizer/build/_deps/glfw-subbuild/CMakeFiles/a8742acd8ada1adb2404692fbea6c5a7/glfw-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/timos/Simplex-visualizer/build/_deps/glfw-subbuild/CMakeFiles/a8742acd8ada1adb2404692fbea6c5a7/glfw-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/timos/Simplex-visualizer/build/_deps/glfw-subbuild/CMakeFiles/a8742acd8ada1adb2404692fbea6c5a7/glfw-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/timos/Simplex-visualizer/build/_deps/glfw-subbuild/CMakeFiles/a8742acd8ada1adb2404692fbea6c5a7/glfw-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/timos/Simplex-visualizer/build/_deps/glfw-subbuild/CMakeFiles/a8742acd8ada1adb2404692fbea6c5a7/glfw-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/timos/Simplex-visualizer/build/_deps/glfw-subbuild/CMakeFiles/a8742acd8ada1adb2404692fbea6c5a7/glfw-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/timos/Simplex-visualizer/build/_deps/glfw-subbuild/CMakeFiles/a8742acd8ada1adb2404692fbea6c5a7/glfw-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/timos/Simplex-visualizer/build/_deps/glfw-subbuild/CMakeFiles/a8742acd8ada1adb2404692fbea6c5a7/glfw-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"glfw-populate"
+		],
+		"name" : "glfw-populate"
+	}
+}

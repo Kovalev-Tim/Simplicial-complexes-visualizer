@@ -1,5 +1,0 @@
-C:/Users/timos/Simplex-visualizer/glm/build/CMakeFiles/viewer.dir
-C:/Users/timos/Simplex-visualizer/glm/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/timos/Simplex-visualizer/glm/build/CMakeFiles/ZERO_CHECK.dir
-C:/Users/timos/Simplex-visualizer/glm/build/_deps/glm-build/CMakeFiles/ALL_BUILD.dir
-C:/Users/timos/Simplex-visualizer/glm/build/_deps/glm-build/glm/CMakeFiles/glm.dir
