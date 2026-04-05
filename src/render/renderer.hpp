@@ -101,6 +101,7 @@ void Renderer::draw(const glm::mat4& MVP) {
     glDrawElements(GL_LINES, edge_count, GL_UNSIGNED_INT, 0);
 
     glUniform3f(glGetUniformLocation(shaderProgram, "color"), 0.8f, 0.8f, 0.8f);
+    glBindVertexArray(gridVAO);
     glDrawArrays(GL_LINES, 0, gridVertexCount);
 
     glBindVertexArray(0);

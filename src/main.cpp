@@ -139,14 +139,15 @@ void simplex_tests() {
 
 void read_input(SimplicialComplex& K) {
     int n;
-    std::cout << "Enter number of simplices:\n";
+    std::cout << "Enter number of simplices: ";
     std::cin >> n;
 
     std::cout << "Enter simplices:\n";
     for (int i = 0; i < n; i++) {
-        std::cout << "Simplex " << i << " size(dimension): ";
+        std::cout << "Simplex #" << i+1 << " size(dimension): ";
         int m;
         std::cin >> m;
+        std::cout << "Enter vertices: ";
         std::vector<int> simplex(m);
         for (int j = 0; j < m; j++) {
             std::cin >> simplex[j];
