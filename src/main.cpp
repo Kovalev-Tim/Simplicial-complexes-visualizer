@@ -155,7 +155,8 @@ void read_input(SimplicialComplex& K) {
         K.add_simplex(simplex);
     }
 }
-const int WIDTH = 2000, HEIGHT = 2000;
+
+const int WIDTH = 2600, HEIGHT = 1900;
 double lastX = WIDTH / 2;
 double lastY = HEIGHT / 2;
 bool firstMouse = true;
@@ -211,7 +212,6 @@ int main() {
 
     Embedding Emb(K);
     Emb.initialize_random(3.0f, 42);
-    Emb.run(500, 0.01f);
 
     glfwInit();
 

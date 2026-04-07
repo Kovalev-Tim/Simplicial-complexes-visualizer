@@ -15,8 +15,8 @@ class Embedding {
 
     float k_rep = 0.1f;
     float k_edge = 1.0f;
-    float k_area = 0.1f;
-    float k_vol = 0.1f;
+    float k_area = 0.2f;
+    float k_vol = 0.2f;
 
     void compute_forces() {
         for (auto& [v, f] : force) f = Vec3(0.0f);
@@ -34,7 +34,7 @@ class Embedding {
                 Vec3 d = pos[v1] - pos[v2];
                 float dist = glm::length(d) + 1e-5f;
 
-                Vec3 f = k_rep * d / (dist * dist * dist);
+                Vec3 f = k_rep * d / (dist * dist * dist * dist);
 
                 force[v1] += f;
                 force[v2] -= f;
@@ -113,6 +113,11 @@ public:
         for (auto v : K.get_vertices()) {
             pos[v] = Vec3(dist(mt), dist(mt), dist(mt));
         }
+    }
+
+    void step(float temp) {
+        compute_forces();
+        integrate(temp);
     }
 
     void run(int iterations, float step) {
