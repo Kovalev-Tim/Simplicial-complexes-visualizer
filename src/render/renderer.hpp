@@ -35,7 +35,7 @@ void Renderer::init() {
 
 void Renderer::upload(const SimplicialComplex& K, const std::map<int, glm::vec3>& pos) {
     std::vector<glm::vec3> vertices;
-    std::map<int, int> id_to_idx;
+    id_to_idx.clear();
 
     int idx = 0;
     for (auto &[v, p] : pos) {
@@ -83,6 +83,19 @@ void Renderer::upload(const SimplicialComplex& K, const std::map<int, glm::vec3>
     glBindVertexArray(0);
 }
 
+void Renderer::update_pos(const std::map<int, glm::vec3>& pos) {
+    if (id_to_idx.empty()) return;
+
+    std::vector<glm::vec3> vertices(id_to_idx.size(), glm::vec3(0.0f));
+    for (const auto& [v, p] : pos) {
+        auto it = id_to_idx.find(v);
+        if (it == id_to_idx.end()) continue;
+        vertices[it->second] = p;
+    }
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferSubData(GL_ARRAY_BUFFER, 0, vertices.size() * sizeof(glm::vec3), vertices.data());
+}
 
 void Renderer::draw(const glm::mat4& MVP) {
     glUseProgram(shaderProgram);

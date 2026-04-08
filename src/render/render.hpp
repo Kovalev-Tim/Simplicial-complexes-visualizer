@@ -15,7 +15,7 @@ public:
     );
 
     void draw(const glm::mat4& MVP);
-
+    void update_pos(const std::map<int, glm::vec3>& positions);
     void create_grid(const int N = 20, const float step = 1.0f);
 
 private:
@@ -30,6 +30,7 @@ private:
 
     int edge_count = 0;
     int tri_count = 0;
+    std::map<int, int> id_to_idx;
 
     void setup_shaders();
 };

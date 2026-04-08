@@ -165,6 +165,7 @@ float yaw = 0.0f;
 float pitch = 0.0f;
 glm::vec3 target = glm::vec3(0.0f);
 glm::vec3 camPos;
+bool SpaceState = false;
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
     if (firstMouse) {
@@ -203,6 +204,7 @@ void scroll_callback(GLFWwindow* window, double x_off, double y_off) {
 }
 
 int main() {
+    freopen("../input.txt", "r", stdin);
     SimplicialComplex K;
     read_input(K);
     //simplex_tests();
@@ -236,7 +238,8 @@ int main() {
     Renderer renderer;
     renderer.init();
     renderer.upload(K, Emb.get_positions());
-
+    float anneal_temp = 1.0f;
+    int count_updates = 0;
     while (!glfwWindowShouldClose(window)) {
         glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -258,6 +261,20 @@ int main() {
             0.1f,
             100.0f
         );
+
+        bool spacePressed = glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS;
+
+        if (spacePressed && !SpaceState) {
+            for (int i = 0; i < 50; i++) {
+                Emb.step(anneal_temp);
+                Emb.run(1, anneal_temp);
+                anneal_temp = std::max(anneal_temp * 0.995f, 0.01f);
+                renderer.update_pos(Emb.get_positions());
+                std::cout << "Temp: " << anneal_temp << std::endl;
+                std::cout << "Updates: " << count_updates++ << std::endl;
+            }
+        }
+        SpaceState = spacePressed;
 
 
         glm::mat4 MVP = proj * view;
