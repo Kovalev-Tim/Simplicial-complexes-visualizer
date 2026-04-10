@@ -17,9 +17,9 @@ A C++ OpenGL tool for constructing, and interactively visualizing simplicial com
 # Project structure
 
 - `src/` - source code
--- `src/core/` - complex and embedding classes
--- `src/render/` - OpenGL renderer
--- `src/main.cpp` - main function
+- `src/core/` - complex and embedding classes
+- `src/render/` - OpenGL renderer
+- `src/main.cpp` - main function
 - `build/` - build directory
 - `glfw/` - GLFW header files
 - `glad/` - glad header files
@@ -28,15 +28,19 @@ A C++ OpenGL tool for constructing, and interactively visualizing simplicial com
 
 ## 1. Clone
 
-`git clone https://github.com/Kovalev-Tim/Simplex-visualizer.git
-cd simplicial-visualizer`
+```
+git clone https://github.com/Kovalev-Tim/Simplex-visualizer.git
+cd simplicial-visualizer
+```
 
 ## 2. Build with CMake
 
-`mkdir build
+```
+mkdir build
 cd build
 cmake ..
-cmake --build .`
+cmake --build .
+```
 
 ## 3. Run
 in build directory
@@ -47,12 +51,12 @@ in build directory
 - for each simplex line: dimension of the simplex, followed by space-separated vertices
 
 Example:
-`
+```
 3
 3 0 1 2
 2 2 3
 3 3 4 5
-`
+```
 
 ## 5. Controls
 
