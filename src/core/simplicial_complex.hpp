@@ -7,7 +7,7 @@
 #include <algorithm>
 #include <stdexcept>
 
-
+// --------- Simplex class (used in SimplicialComplex) ---------
 struct Simplex {
     std::vector<int> v;
 
@@ -26,6 +26,7 @@ struct Simplex {
     }
 };
 
+// --------- Simplex hash to use unordered_map and unordered_set ---------
 struct SimplexHash {
     std::size_t operator()(const Simplex& s) const {
         size_t h = 0;
@@ -36,6 +37,7 @@ struct SimplexHash {
     }
 };
 
+// --------- SimplicialComplex class ---------
 class SimplicialComplex {
  private:
     std::set<int> vertices;
@@ -43,7 +45,7 @@ class SimplicialComplex {
     std::map<int, std::vector<Simplex>> simplices_by_dimension;
 
     int max_dimension = 0;
-
+    // Recursive function to add a simplex and its faces of smaller dimension
     void add_simplex_recursive(Simplex s) {
         if (all_simplices.count(s)) return;
         all_simplices.insert(s);
@@ -61,7 +63,7 @@ class SimplicialComplex {
     void add_vertex(int id) {
         vertices.insert(id);
     }
-
+    // Add a simplex from a vector of vertices (initializes Simplex class)
     void add_simplex(const std::vector<int>& verts) {
         if (verts.empty() || verts.size() > 4) throw std::invalid_argument("Simplex must have size 1..4");
 

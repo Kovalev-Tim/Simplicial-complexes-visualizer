@@ -33,7 +33,7 @@ void Renderer::init() {
     setup_shaders();
     create_grid();
 }
-
+// upload the complex with positions
 void Renderer::upload(const SimplicialComplex& K, const std::map<int, glm::vec3>& pos) {
     std::vector<glm::vec3> vertices;
     id_to_idx.clear();
@@ -64,7 +64,7 @@ void Renderer::upload(const SimplicialComplex& K, const std::map<int, glm::vec3>
     edge_count = edges.size();
     tri_count = tris.size();
 
-
+    // update buffers
     glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -73,17 +73,18 @@ void Renderer::upload(const SimplicialComplex& K, const std::map<int, glm::vec3>
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), (void*)0);
     glEnableVertexAttribArray(0);
 
-
+    // update edge buffer
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO_edges);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER,edges.size() * sizeof(unsigned int), edges.data(), GL_DYNAMIC_DRAW);
 
-
+    // update triangle buffer
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO_triangles);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, tris.size() * sizeof(unsigned int), tris.data(), GL_DYNAMIC_DRAW);
 
     glBindVertexArray(0);
 }
 
+// dynamic update of complex's positions
 void Renderer::update_pos(const std::map<int, glm::vec3>& pos) {
     if (id_to_idx.empty()) return;
 
@@ -98,6 +99,8 @@ void Renderer::update_pos(const std::map<int, glm::vec3>& pos) {
     glBufferSubData(GL_ARRAY_BUFFER, 0, vertices.size() * sizeof(glm::vec3), vertices.data());
 }
 
+
+// draw the complex
 void Renderer::draw(const glm::mat4& MVP) {
     glUseProgram(shaderProgram);
 
@@ -105,7 +108,7 @@ void Renderer::draw(const glm::mat4& MVP) {
     glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(MVP));
 
     glBindVertexArray(VAO);
-
+    // triangle buffer with color and opacity settings
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO_triangles);
     glUniform3f(glGetUniformLocation(shaderProgram, "color"), 0.3f, 0.7f, 1.0f);
     glUniform1f(glGetUniformLocation(shaderProgram, "alpha"), 1.0f);
@@ -129,13 +132,14 @@ void Renderer::draw(const glm::mat4& MVP) {
     glBindVertexArray(0);
 }
 
+// create floor grid
 void Renderer::create_grid(int N, float step) {
     std::vector<float> grid;
 
     for (int i = -N; i <= N; i++) {
         float x = i * step;
 
-        // Z coord
+        // Y coord
         grid.push_back(x); grid.push_back(0); grid.push_back(-N * step);
         grid.push_back(x); grid.push_back(0); grid.push_back(N * step);
 

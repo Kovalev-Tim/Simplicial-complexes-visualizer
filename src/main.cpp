@@ -17,7 +17,7 @@ void print_stats(const SimplicialComplex& K) {
     }
     std::cout << "-------------------" << std::endl;
 }
-
+// Check if the embedding is valid
 void embedding_check(const SimplicialComplex& K) {
     std::cout << "Vertices: ";
     for (int v : K.get_vertices()) std::cout << v << " ";
@@ -58,10 +58,7 @@ void embedding_check(const SimplicialComplex& K) {
     std::cout << "Embedding test passed!" << std::endl;
 }
 
-void visual_check() {
-
-}
-
+// Check if complex class is working
 void simplex_tests() {
     {
         std::cout << "Test 1: single vertex" << std::endl;
@@ -136,7 +133,7 @@ void simplex_tests() {
 
     std::cout << "Simplex tests passed." << std::endl;
 }
-
+// read the complex
 void read_input(SimplicialComplex& K) {
     int n;
     std::cout << "Enter number of simplices: ";
@@ -155,7 +152,7 @@ void read_input(SimplicialComplex& K) {
         K.add_simplex(simplex);
     }
 }
-
+//parameters
 const int WIDTH = 2600, HEIGHT = 1900;
 double lastX = WIDTH / 2;
 double lastY = HEIGHT / 2;
@@ -166,8 +163,9 @@ float pitch = 0.0f;
 glm::vec3 target = glm::vec3(0.0f);
 glm::vec3 camPos;
 bool SpaceState = false;
-
+// mouse controls
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
+    //initialize positions
     if (firstMouse) {
         lastX = xpos;
         lastY = ypos;
@@ -178,7 +176,7 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
     float dy = lastY - ypos;
     lastX = xpos;
     lastY = ypos;
-
+    //left click to orbit
     if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
         float sensitivity = 0.005f;
         yaw   += dx * sensitivity;
@@ -186,7 +184,7 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
 
         pitch = std::clamp(pitch, -1.5f, 1.5f);
     }
-
+    //right click to pan
     if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS) {
         float panSpeed = 0.003f * radius;
         glm::vec3 forward = glm::normalize(target - camPos);
@@ -197,16 +195,21 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
         target += up * dy * panSpeed;
     }
 }
-
+// scroll controls to zoom
 void scroll_callback(GLFWwindow* window, double x_off, double y_off) {
     radius -= (float)y_off;
     radius = std::clamp(radius, 1.0f, 20.0f);
 }
 
 int main() {
+    //  ------------- freopen to check torus ----------------
+
     //freopen("../input.txt", "r", stdin);
     SimplicialComplex K;
     read_input(K);
+
+    // ------------- optional tests -------------------------
+
     //simplex_tests();
     //embedding_check(K);
 
@@ -216,13 +219,13 @@ int main() {
     Emb.initialize_random(3.0f, 42);
 
     glfwInit();
-
+    // create a window
     GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Simplicial Viewer", NULL, NULL);
     if (!window) {
         std::cout << "Failed to create window\n";
         return -1;
     }
-
+    // add mouse & scroll controls
     glfwMakeContextCurrent(window);
     glfwSetCursorPosCallback(window, mouse_callback);
     glfwSetScrollCallback(window, scroll_callback);
@@ -233,11 +236,11 @@ int main() {
     }
 
     glViewport(0, 0, WIDTH, HEIGHT);
-    glEnable(GL_DEPTH_TEST);
-
+    // initialize the renderer
     Renderer renderer;
     renderer.init();
     renderer.upload(K, Emb.get_positions());
+    // annealing settings
     float anneal_temp = 1.0f;
     int count_updates = 0;
     while (!glfwWindowShouldClose(window)) {
@@ -263,12 +266,14 @@ int main() {
         );
 
         bool spacePressed = glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS;
-
+        // run annealing if space is pressed
         if (spacePressed && !SpaceState) {
             for (int i = 0; i < 50; i++) {
                 Emb.step(anneal_temp);
                 anneal_temp = std::max(anneal_temp * 0.995f, 0.01f);
                 renderer.update_pos(Emb.get_positions());
+                // ------------ optional debug ----------------
+
                 //std::cout << "Temp: " << anneal_temp << std::endl;
                 //std::cout << "Updates: " << count_updates++ << std::endl;
             }

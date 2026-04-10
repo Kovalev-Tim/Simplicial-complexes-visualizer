@@ -20,6 +20,8 @@ class Embedding {
     float k_face = 0.1f;
     std::mt19937 mt{42};
 
+    // --------------- calculate energies for a complex ---------------
+
     float edge_energy() const {
         float energy = 0.0f;
         for (const auto& s : K.get_simplices(1)) {
@@ -73,7 +75,7 @@ class Embedding {
     float total_energy() const {
         return repulsion_energy() + edge_energy() + triangle_energy() + tetra_energy();
     }
-
+    // --------------- calculate forces for a complex ---------------
     void compute_forces() {
         for (auto& [v, f] : force) f = Vec3(0.0f);
         apply_repulsion();
@@ -222,7 +224,7 @@ class Embedding {
             }
         }
     }
-
+    // apply forces
     void integrate(float step) {
         for (auto& [v, p] : pos) {
             p += step * force[v];
@@ -231,6 +233,7 @@ class Embedding {
 public:
     explicit Embedding(const SimplicialComplex& K) : K(K) {}
 
+    // initialize positions
     void initialize_random(float scale = 1.0f, int seed = 53) {
         mt.seed(seed);
         std::uniform_real_distribution<float> dist(-scale, scale);
@@ -239,14 +242,14 @@ public:
             pos[v] = Vec3(dist(mt), dist(mt), dist(mt));
         }
     }
-
+    // annealing step
     void step(float temp) {
         if (temp <= 1e-6f) return;
-
+        // random shift
         std::normal_distribution<float> perturb(0.0f, temp);
         auto old_pos = pos;
         float old_energy = total_energy();
-
+        // force apply
         compute_forces();
 
         for (auto& [v, p] : pos) {
