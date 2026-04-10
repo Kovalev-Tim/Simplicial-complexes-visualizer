@@ -243,6 +243,7 @@ int main() {
     // annealing settings
     float anneal_temp = 1.0f;
     int count_updates = 0;
+    int annealing_steps_per_space = 50;
     while (!glfwWindowShouldClose(window)) {
         glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -268,7 +269,7 @@ int main() {
         bool spacePressed = glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS;
         // run annealing if space is pressed
         if (spacePressed && !SpaceState) {
-            for (int i = 0; i < 50; i++) {
+            for (int i = 0; i < annealing_steps_per_space; i++) {
                 Emb.step(anneal_temp);
                 anneal_temp = std::max(anneal_temp * 0.995f, 0.01f);
                 renderer.update_pos(Emb.get_positions());
