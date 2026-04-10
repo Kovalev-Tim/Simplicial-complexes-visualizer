@@ -204,7 +204,7 @@ void scroll_callback(GLFWwindow* window, double x_off, double y_off) {
 }
 
 int main() {
-    freopen("../input.txt", "r", stdin);
+    //freopen("../input.txt", "r", stdin);
     SimplicialComplex K;
     read_input(K);
     //simplex_tests();
@@ -267,11 +267,10 @@ int main() {
         if (spacePressed && !SpaceState) {
             for (int i = 0; i < 50; i++) {
                 Emb.step(anneal_temp);
-                Emb.run(1, anneal_temp);
                 anneal_temp = std::max(anneal_temp * 0.995f, 0.01f);
                 renderer.update_pos(Emb.get_positions());
-                std::cout << "Temp: " << anneal_temp << std::endl;
-                std::cout << "Updates: " << count_updates++ << std::endl;
+                //std::cout << "Temp: " << anneal_temp << std::endl;
+                //std::cout << "Updates: " << count_updates++ << std::endl;
             }
         }
         SpaceState = spacePressed;

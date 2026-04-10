@@ -14,9 +14,10 @@ class Embedding {
     std::map<int, Vec3> force;
 
     float k_rep  = 0.05f;
-    float k_edge = 0.5f;
+    float k_edge = 0.1f;
     float k_area = 0.05f;
     float k_vol  = 0.05f;
+    float k_face = 0.1f;
     std::mt19937 mt{42};
 
     float edge_energy() const {
@@ -78,6 +79,8 @@ class Embedding {
         apply_repulsion();
         apply_edge_forces();
         apply_triangle_forces();
+        apply_two_triangle_forces();
+        apply_two_segment_forces();
         apply_tetra_forces();
     }
 
@@ -156,6 +159,70 @@ class Embedding {
         }
     }
 
+    void apply_two_triangle_forces() {
+        if (K.max_dim() < 2) return;
+
+        for (const auto& s : K.get_simplices(2)) {
+            for (const auto& t : K.get_simplices(2)) {
+                if (s == t) continue;
+
+                auto a = s.v[0], b = s.v[1], c = s.v[2];
+                auto d = t.v[0], e = t.v[1], f = t.v[2];
+                Vec3 cs = (pos[a] + pos[b] + pos[c]) / 3.0f;
+                Vec3 ct = (pos[d] + pos[e] + pos[f]) / 3.0f;
+                Vec3 diff = cs - ct;
+                float dist = glm::length(diff) + 1e-4f;
+
+                float cutoff = 1.5f;
+                if (dist > cutoff) continue;
+
+                Vec3 dir = diff / dist;
+                float strength = k_face * (1.0f / (dist * dist));
+
+                Vec3 force_applied = strength * dir;
+
+                force[a] += force_applied / 3.0f;
+                force[b] += force_applied / 3.0f;
+                force[c] += force_applied / 3.0f;
+
+                force[d] -= force_applied / 3.0f;
+                force[e] -= force_applied / 3.0f;
+                force[f] -= force_applied / 3.0f;
+            }
+        }
+    }
+
+    void apply_two_segment_forces() {
+        if (K.max_dim() < 1) return;
+
+        for (const auto& s : K.get_simplices(1)) {
+            for (const auto& t : K.get_simplices(1)) {
+                if (s == t) continue;
+
+                auto a = s.v[0], b = s.v[1];
+                auto c = t.v[0], d = t.v[1];
+                Vec3 cs = (pos[a] + pos[b]) / 2.0f;
+                Vec3 ct = (pos[c] + pos[d]) / 2.0f;
+                Vec3 diff = cs - ct;
+                float dist = glm::length(diff) + 1e-4f;
+
+                float cutoff = 1.0f;
+                if (dist > cutoff) continue;
+
+                Vec3 dir = diff / dist;
+                float strength = k_edge * (1.0f / (dist * dist));
+
+                Vec3 force_applied = strength * dir;
+
+                force[a] += force_applied / 2.0f;
+                force[b] += force_applied / 2.0f;
+
+                force[c] -= force_applied / 2.0f;
+                force[d] -= force_applied / 2.0f;
+            }
+        }
+    }
+
     void integrate(float step) {
         for (auto& [v, p] : pos) {
             p += step * force[v];
@@ -180,8 +247,12 @@ public:
         auto old_pos = pos;
         float old_energy = total_energy();
 
+        compute_forces();
+
         for (auto& [v, p] : pos) {
-            p += Vec3(perturb(mt), perturb(mt), perturb(mt));
+            Vec3 random_shift(perturb(mt), perturb(mt), perturb(mt));
+            Vec3 force_shift = temp * force[v];
+            p += force_shift + random_shift;
         }
 
         float new_energy = total_energy();
@@ -193,14 +264,6 @@ public:
         float accept_prob = std::exp(-dE / temp);
         if (coin(mt) > accept_prob) {
             pos = old_pos;
-        }
-    }
-
-    void run(int iterations, float step) {
-        for (int i = 0; i < iterations; i++) {
-            compute_forces();
-            integrate(step);
-            step *= 0.99f;
         }
     }
 

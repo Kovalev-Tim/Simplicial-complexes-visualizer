@@ -26,6 +26,7 @@ void Renderer::init() {
     glGenBuffers(1, &VBO);
     glGenBuffers(1, &EBO_edges);
     glGenBuffers(1, &EBO_triangles);
+    glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -67,18 +68,18 @@ void Renderer::upload(const SimplicialComplex& K, const std::map<int, glm::vec3>
     glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), vertices.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), vertices.data(), GL_DYNAMIC_DRAW);
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), (void*)0);
     glEnableVertexAttribArray(0);
 
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO_edges);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER,edges.size() * sizeof(unsigned int), edges.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER,edges.size() * sizeof(unsigned int), edges.data(), GL_DYNAMIC_DRAW);
 
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO_triangles);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, tris.size() * sizeof(unsigned int), tris.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, tris.size() * sizeof(unsigned int), tris.data(), GL_DYNAMIC_DRAW);
 
     glBindVertexArray(0);
 }
@@ -107,15 +108,23 @@ void Renderer::draw(const glm::mat4& MVP) {
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO_triangles);
     glUniform3f(glGetUniformLocation(shaderProgram, "color"), 0.3f, 0.7f, 1.0f);
+    glUniform1f(glGetUniformLocation(shaderProgram, "alpha"), 1.0f);
     glDrawElements(GL_TRIANGLES, tri_count, GL_UNSIGNED_INT, 0);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO_edges);
+
+    glLineWidth(3.0f);
     glUniform3f(glGetUniformLocation(shaderProgram, "color"), 1.0f, 1.0f, 1.0f);
+    glUniform1f(glGetUniformLocation(shaderProgram, "alpha"), 1.0f);
     glDrawElements(GL_LINES, edge_count, GL_UNSIGNED_INT, 0);
 
+    glDepthFunc(GL_ALWAYS);
+    glLineWidth(1.0f);
     glUniform3f(glGetUniformLocation(shaderProgram, "color"), 0.8f, 0.8f, 0.8f);
+    glUniform1f(glGetUniformLocation(shaderProgram, "alpha"), 0.4f);
     glBindVertexArray(gridVAO);
     glDrawArrays(GL_LINES, 0, gridVertexCount);
+    glDepthFunc(GL_LESS);
 
     glBindVertexArray(0);
 }
@@ -162,8 +171,9 @@ void Renderer::setup_shaders() {
         #version 330 core
         out vec4 FragColor;
         uniform vec3 color;
+        uniform float alpha;
         void main() {
-            FragColor = vec4(color, 1.0);
+            FragColor = vec4(color, alpha);
         }
     )";
 
