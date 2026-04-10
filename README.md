@@ -9,7 +9,7 @@ A C++ OpenGL tool for constructing, and interactively visualizing simplicial com
 - Real-time embedding in 3D
 - Hybrid optimization:
   - force-based dynamics
-  - stochastic annealing
+  - simulated annealing
 - Camera controls (orbit / pan / zoom)
 
 ---
