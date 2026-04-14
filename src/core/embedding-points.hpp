@@ -13,11 +13,12 @@ class Embedding {
     std::map<int, Vec3> pos;
     std::map<int, Vec3> force;
 
-    float k_rep  = 0.05f;
-    float k_edge = 0.1f;
+    float k_rep  = 0.1f;
+    float k_edge = 0.2f;
     float k_area = 0.05f;
     float k_vol  = 0.05f;
-    float k_face = 0.1f;
+    float k_face = 0.5f;
+    float k_dihedral = 0.1f;
     std::mt19937 mt{42};
 
     // --------------- calculate energies for a complex ---------------
@@ -83,6 +84,8 @@ class Embedding {
         apply_triangle_forces();
         apply_two_triangle_forces();
         apply_two_segment_forces();
+        apply_triangle_segment_forces();
+        apply_angle_normalization();
         apply_tetra_forces();
     }
 
@@ -173,7 +176,7 @@ class Embedding {
                 Vec3 cs = (pos[a] + pos[b] + pos[c]) / 3.0f;
                 Vec3 ct = (pos[d] + pos[e] + pos[f]) / 3.0f;
                 Vec3 diff = cs - ct;
-                float dist = glm::length(diff) + 1e-4f;
+                float dist = glm::length(diff) + 1e-6f;
 
                 float cutoff = 1.5f;
                 if (dist > cutoff) continue;
@@ -206,9 +209,9 @@ class Embedding {
                 Vec3 cs = (pos[a] + pos[b]) / 2.0f;
                 Vec3 ct = (pos[c] + pos[d]) / 2.0f;
                 Vec3 diff = cs - ct;
-                float dist = glm::length(diff) + 1e-4f;
+                float dist = glm::length(diff) + 1e-6f;
 
-                float cutoff = 1.0f;
+                float cutoff = 1.5f;
                 if (dist > cutoff) continue;
 
                 Vec3 dir = diff / dist;
@@ -224,6 +227,89 @@ class Embedding {
             }
         }
     }
+
+    void apply_triangle_segment_forces() {
+        if (K.max_dim() < 2) return;
+
+        for (const auto& s : K.get_simplices(2)) {
+            for (const auto& t : K.get_simplices(1)) {
+                auto a = s.v[0], b = s.v[1], c = s.v[2];
+                auto d = t.v[0], e = t.v[1];
+                Vec3 cs = (pos[a] + pos[b] + pos[c]) / 3.0f;
+                Vec3 ct = (pos[d] + pos[e]) / 2.0f;
+                Vec3 diff = cs - ct;
+                float dist = glm::length(diff) + 1e-6f;
+
+                float cutoff = 1.5f;
+                if (dist > cutoff) continue;
+
+                Vec3 dir = diff / dist;
+                float strength = k_edge * (1.0f / (dist * dist));
+
+                Vec3 force_applied = strength * dir;
+
+                force[a] += force_applied / 3.0f;
+                force[b] += force_applied / 3.0f;
+                force[c] += force_applied / 3.0f;
+
+                force[d] -= force_applied / 2.0f;
+                force[e] -= force_applied / 2.0f;
+            }
+        }
+    }
+
+    void apply_angle_normalization() {
+        if (K.max_dim() < 2) return;
+        for (const auto& s : K.get_simplices(2)) {
+            for (const auto& t : K.get_simplices(2)) {
+                if (s == t) continue;
+
+                std::vector<int> s1 = s.v;
+                std::vector<int> t1 = t.v;
+                std::sort(s1.begin(), s1.end());
+                std::sort(t1.begin(), t1.end());
+                std::vector<int> match;
+                int no_match_s, no_match_t;
+                for (int i = 0; i < 3; i++) {
+                    if (t1[i] == s1[i]) {
+                        match.push_back(t1[i]);
+                    } else {
+                        no_match_s = s1[i];
+                        no_match_t = t1[i];
+                    }
+                }
+                if (match.size() < 2) continue;
+                Vec3 pa = pos[match[0]];
+                Vec3 pb = pos[match[1]];
+                Vec3 pc = pos[no_match_s];
+                Vec3 pd = pos[no_match_t];
+
+                Vec3 n1 = glm::cross(pb - pa, pc - pa);
+                Vec3 n2 = glm::cross(pb - pa, pd - pa);
+
+                float len1 = glm::length(n1) + 1e-6f;
+                float len2 = glm::length(n2) + 1e-6f;
+
+                n1 /= len1;
+                n2 /= len2;
+
+                float cos_theta = glm::dot(n1, n2);
+                float target = -1.0f;
+
+                float diff = cos_theta - target;
+
+                Vec3 f_c = -k_dihedral * diff * n2;
+                Vec3 f_d = -k_dihedral * diff * n1;
+
+                force[no_match_s] += f_c;
+                force[no_match_t] += f_d;
+
+                Vec3 edge_corr = 0.5f * (f_c + f_d);
+                force[match[0]] -= 0.5f * edge_corr;
+                force[match[1]] -= 0.5f * edge_corr;
+            }
+        }
+    }
     // apply forces
     void integrate(float step) {
         for (auto& [v, p] : pos) {
@@ -234,7 +320,7 @@ public:
     explicit Embedding(const SimplicialComplex& K) : K(K) {}
 
     // initialize positions
-    void initialize_random(float scale = 1.0f, int seed = 53) {
+    void initialize_random(float scale = 1.0f, int seed = 696967) {
         mt.seed(seed);
         std::uniform_real_distribution<float> dist(-scale, scale);
 
@@ -246,7 +332,7 @@ public:
     void step(float temp) {
         if (temp <= 1e-6f) return;
         // random shift
-        std::normal_distribution<float> perturb(0.0f, temp);
+        std::normal_distribution<float> perturb(0.0f, 2 * temp);
         auto old_pos = pos;
         float old_energy = total_energy();
         // force apply

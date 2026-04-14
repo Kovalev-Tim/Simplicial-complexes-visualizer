@@ -204,7 +204,7 @@ void scroll_callback(GLFWwindow* window, double x_off, double y_off) {
 int main() {
     //  ------------- freopen to check torus ----------------
 
-    //freopen("../input.txt", "r", stdin);
+    freopen("../input.txt", "r", stdin);
     SimplicialComplex K;
     read_input(K);
 
@@ -216,7 +216,7 @@ int main() {
     std::cout << "Complex built\n";
 
     Embedding Emb(K);
-    Emb.initialize_random(3.0f, 42);
+    Emb.initialize_random(3.0f, 696967);
 
     glfwInit();
     // create a window
